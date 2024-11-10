@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template <typename T1, typename T2, typename T3, typename T4>
+struct Student {
+    T1 name;
+    T2 age;
+    T3 course;
+    T4 department;
+};
+
+int main() {
+    Student<string, int, string, string> student1 = {"Alice", 20, "Computer Science", "CSE"};
+    Student<string, int, string, string> student2 = {"Bob", 21, "Electrical Engineering", "EEE"};
+
+    cout << "Student 1:" << endl;
+    cout << "Name: " << student1.name << endl;
+    cout << "Age: " << student1.age << endl;
+    cout << "Course: " << student1.course << endl;
+    cout << "Department: " << student1.department << endl;
+
+    cout << endl << "Student 2:" << endl;
+    cout << "Name: " << student2.name << endl;
+    cout << "Age: " << student2.age << endl;
+    cout << "Course: " << student2.course << endl;
+    cout << "Department: " << student2.department << endl;
+
+    return 0;
+}
