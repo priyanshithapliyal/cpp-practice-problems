@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+class Number {
+public:
+    int num;
+
+    // Member function for + operator
+    Number operator+(Number obj) {
+        Number temp;
+        temp.num = num + obj.num;
+        return temp;
+    }
+
+    // Friend function for - operator
+    friend Number operator-(Number obj1, Number obj2) {
+        Number temp;
+        temp.num = obj1.num - obj2.num;
+        return temp;
+    }
+};
+
+int main() {
+    Number num1, num2, result;
+
+    num1.num = 10;
+    num2.num = 5;
+
+    // Using member function + operator
+    result = num1 + num2;
+    cout << "Sum: " << result.num << endl;
+
+    // Using friend function - operator
+    result = num1 - num2;
+    cout << "Difference: " << result.num << endl;
+
+    return 0;
+}
