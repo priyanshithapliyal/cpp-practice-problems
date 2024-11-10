@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+class Student {
+public:
+    inline int sum(int a, int b) {
+        return a + b;
+    }
+};
+
+int main() {
+    Student student;
+    int num1, num2;
+
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+
+    int result = student.sum(num1, num2);
+    cout << "Sum: " << result << endl;
+
+    return 0;
+}
