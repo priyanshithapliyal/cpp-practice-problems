@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+class Number {
+public:
+    int a;
+
+    // Member function for increment operator
+    Number operator++() {
+        Number temp;
+        temp.a = a + 5;
+        a = temp.a;
+        return temp;
+    }
+
+    // Member function for decrement operator
+    Number operator--() {
+        Number temp;
+        temp.a = a - 1;
+        a = temp.a;
+        return temp;
+    }
+
+    // Friend function for negation operator
+    friend Number operator-(Number &obj) {
+        Number temp;
+        temp.a = -obj.a;
+        return temp;
+    }
+};
+
+int main() {
+    Number num;
+    num.a = 10;
+
+    // Increment by 5 using prefix increment
+    cout << "After prefix increment: " << (++num).a << endl;
+
+    // Decrement by 1 using prefix decrement
+    cout << "After prefix decrement: " << (--num).a << endl;
+
+    // Negate the value using unary minus operator
+    cout << "After negation: " << (-num).a << endl;
+
+    return 0;
+}
