@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+class Base {
+public:
+    virtual int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+
+class Derived : public Base {
+public:
+    int sum(int a, int b, int c) override {
+        return a + b + c + 10; // Overridden implementation
+    }
+};
+
+int main() {
+    Base baseObj;
+    Derived derivedObj;
+
+    // Sum using Base class object
+    int sum1 = baseObj.sum(10, 20, 30);
+    cout << "Sum from Base class: " << sum1 << endl;
+
+    // Sum using Derived class object
+    int sum2 = derivedObj.sum(10, 20, 30);
+    cout << "Sum from Derived class: " << sum2 << endl;
+
+    // Polymorphism: Calling Base class function through Derived class object
+    int sum3 = baseObj.sum(10, 20, 30); // Will call the Base class implementation
+    cout << "Sum from Base class through Derived class object: " << sum3 << endl;
+
+    return 0;
+}
