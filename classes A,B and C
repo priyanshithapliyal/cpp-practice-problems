@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+class A {
+private:
+    int a_private;
+protected:
+    int a_protected;
+
+public:
+    A(int a, int b) : a_private(a), a_protected(b) {}
+
+    friend class FriendClass;
+};
+
+class B {
+private:
+    int b_private;
+protected:
+    int b_protected;
+
+public:
+    B(int a, int b) : b_private(a), b_protected(b) {}
+
+    friend class FriendClass;
+};
+
+class C {
+private:
+    int c_private;
+protected:
+    int c_protected;
+
+public:
+    C(int a, int b) : c_private(a), c_protected(b) {}
+
+    friend class FriendClass;
+};
+
+class FriendClass {
+public:
+    void accessAll(A &a, B &b, C &c) {
+        cout << "A's private: " << a.a_private << endl;
+        cout << "A's protected: " << a.a_protected << endl;
+        cout << "B's private: " << b.b_private << endl;
+        cout << "B's protected: " << b.b_protected << endl;
+        cout << "C's private: " << c.c_private << endl;
+        cout << "C's protected: " << c.c_protected << endl;
+    }
+};
+
+int main() {
+    A a(1, 2);
+    B b(3, 4);
+    C c(5, 6);
+
+    FriendClass friendClass;
+    friendClass.accessAll(a, b, c);
+
+    return 0;
+}
